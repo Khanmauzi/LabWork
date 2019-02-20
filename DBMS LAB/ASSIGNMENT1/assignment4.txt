@@ -1,0 +1,148 @@
+1. Write the PL/SQL script to display the employee_name, job, salary and
+department_number from the employee table.
+
+
+
+
+
+set serveroutput on;
+declare
+cursor xyz is
+select ename,job,sal,deptno
+from emp;
+emprec xyz%rowtype;
+begin
+open xyz;
+loop
+fetch xyz into emprec;
+exit when xyz%notfound;
+dbms_output.put_line(emprec.ename||' '||emprec.job||' '||emprec.sal||' '||emprec.deptno);
+end loop;
+close xyz;
+end;
+
+
+anonymous block completed
+JOHS PRESIDENT 1000000 1
+JOHN MINISTER 50000 10
+MARTIN MANAGER 25000 20
+LUTHER MANGAER 25000 20
+DAVID MANAGER 25000 20
+ABRAHAM CLARK 15000 30
+ABHI CLARK 15000 30
+
+
+
+2. Write a PL/SQL script to increase the salary as per following criteria:
+SALARY AMT INCREMENTED BY
+<1200 8%
+<2500 12%
+<4500 15%
+OTHERWISE 20%
+
+
+set serveroutput on;
+declare
+cursor xyz is
+select sal
+from emp;
+salary emp.sal%type;
+nsalary emp.sal%type;
+begin 
+open xyz;
+loop
+fetch xyz into salary;
+exit when xyz%notfound;
+if (salary<1200) then nsalary:=salary+salary*.08;
+elsif (salary<2500) then nsalary:=salary+salary*.12;
+elsif (salary<4500) then nsalary:=salary+salary*.15;
+else nsalary:=salary+salary*.2;
+end if;
+update emp
+set sal=nsalary
+where sal=salary;
+end loop;
+close xyz;
+end;
+
+
+anonymous block completed
+
+
+
+3. Write the PL/SQL script to display the employee_name, job, salary of particular
+department that is input by user using parameter
+
+
+
+set serveroutput on;
+accept n prompt 'enter the deptnumber';
+declare 
+dept number :=&n;
+cursor xyz (vdept number) is
+select ename,job,sal,deptno
+from emp
+where vdept=deptno;
+emprec xyz%rowtype;
+begin
+open xyz(dept);
+loop
+fetch xyz into emprec;
+exit when xyz%notfound;
+dbms_output.put_line(emprec.ename||' '||emprec.job||' '||emprec.sal||' '||emprec.deptno);
+end loop;
+close xyz;
+end;
+
+
+
+anonymous block completed
+MARTIN MANAGER 25000 20
+LUTHER MANGAER 25000 20
+DAVID MANAGER 25000 20
+
+
+
+4. Write a PL/SQL script to display the name, salary and bonus (salary * .12) for each
+employee using cursor for loop.
+
+
+set serveroutput on;
+declare
+cursor xyz is
+select ename,sal
+from emp;
+bonus emp.sal%type;
+emprec xyz%rowtype;
+begin
+dbms_output.put_line('name   '||'  salary   '||'  bonus ');
+open xyz;
+loop
+fetch xyz into emprec;
+exit when xyz%notfound;
+bonus :=emprec.sal*.12;
+dbms_output.put_line(emprec.ename||'     '||emprec.sal||'   '||bonus);
+end loop;
+close xyz;
+end;
+
+
+
+anonymous block completed
+name     salary     bonus 
+JOHS     1000000   120000
+JOHN     50000   6000
+MARTIN     25000   3000
+LUTHER     25000   3000
+DAVID     25000   3000
+ABRAHAM     15000   1800
+ABHI     15000   1800
+
+
+
+
+
+
+
+
+

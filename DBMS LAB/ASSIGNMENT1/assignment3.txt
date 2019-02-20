@@ -1,0 +1,269 @@
+1. Write a PL/SQL program to input two numbers and display the total and average of these numbers.
+
+
+set serveroutput on;
+Accept x prompt'enter first input'
+accept y prompt 'enter the second input'
+begin
+dbms_output.put_line((&x+&y)/2);
+end ;
+
+
+15
+
+
+2. Write a PL/SQL block to accept a year and check whether it is a leap year or not?
+
+
+
+set serveroutput on;
+accept x prompt 'enter the year'
+declare
+n number:=&x;
+begin 
+  if ((mod(n,100)=0 and mod(n,400)=0) or (mod(n,4)=0 and mod(n,100)!=0 ))
+    then
+  dbms_output.put_line(n ||' leap year');
+  else
+  dbms_output.put_line(n ||' not leap year');
+  end if;
+
+  end;
+
+
+
+
+3. Write a program to input the salary and working experience of employee and calculate the bonus as 10% of salary. 
+Give $500. Extra bonus to those who’s working experience More than 10 years.
+
+
+
+set serveroutput on;
+accept s prompt 'enter salary'
+accept x prompt 'enter expericne'
+declare
+salary number :=&s;
+exp number :=&x;
+bonus number not null :=0;
+begin
+  bonus:=salary/10;
+  if(exp>10)
+  then
+  bonus:=bonus+500;
+  end if;
+  dbms_output.put_line('bonus is '|| bonus);
+  end;
+  
+
+
+4. Write a PL/SQL program to input the Basic Salary and calculate the HRA, DA and Net Salary as per:
+BASIC HRA DA
+>15000 12% 8%
+>12000 10% 6%
+>9000 7% 4%
+OTHERS 5% $200
+
+
+set serveroutput on;
+accept s prompt 'enter the basic salary'
+declare
+ salary number :=&s;
+ hra number not null :=0;
+ da number not null :=0;
+ net_sal number not null :=0;
+ begin
+  if(salary>1500)
+  then 
+  hra :=(12*salary)/100;
+  da :=(8*salary)/100;
+  else 
+  if salary>1200
+ then
+ hra :=salary/10;
+ da :=(6*salary)/100;
+ else if salary>9000
+ then 
+ hra :=(7*salary)/100;
+ da :=(4*salary)/100;
+ else
+ hra:=(5*salary)/100;
+ da:=200;
+ end if;
+ end if;
+ end if;
+ net_sal:=salary+hra+da;
+ dbms_output.put_line('net salary is '|| net_sal);
+ end;
+
+
+
+5. Program to input principal amount, time. If time more than 10 years, 
+calculate the simple interest with 8% interest otherwise with 6%.
+
+set serveroutput on;
+accept x prompt 'enter the principal amount ';
+accept y prompt 'enter the time period ';
+declare
+principal number :=&x;
+tym number :=&y;
+si number not null :=0;
+begin 
+if(tym>10)
+then 
+si :=(principal*8*tym)/100;
+else
+si :=(principal*6*tym)/100;
+end if;
+dbms_output.put_line('simple interest is '||si);
+end;
+
+
+SELECT, INSERT AND DELETE:
+
+
+6. Write the Code to input the employee’s number and print the name and salary of that employee
+
+
+set serveroutput on;
+accept n prompt 'enter the employee id ';
+declare
+en NUMBER :=&n;
+nam emp.ename% TYPE;
+sall emp.sal% TYPE;
+begin 
+select ename,sal
+into nam,sall
+from emp
+
+where en=emp.empno;
+dbms_output.put_line('name is ' || nam ||' and salary is '|| sall);
+end;
+
+
+
+name is JOHS and salary is 1000000
+
+
+
+7. Write a PL/SQL block to print the highest paid and lowest paid employee from employee table.
+
+
+
+set serveroutput on;
+declare
+cursor xyz is
+select empno,ename
+from emp
+where sal=(select max(sal)from emp)
+      or
+      sal=(select min(sal)from emp);
+ num emp.empno%type;
+ nam emp.ename%type;
+ 
+ begin 
+    open xyz;
+    loop
+    fetch xyz into num,nam;
+    exit when xyz%notfound;
+    dbms_output.put_line('no is '||num ||' and name is ' ||nam);
+    end loop;
+    close xyz;
+    end;
+
+no is 4596 and name is JOHS
+no is 7845 and name is ABRAHAM
+no is 3659 and name is ABHI
+
+
+
+8. Write the PL/SQL code to input the employee’s number and increase the salary by 10% if his salary < 5000 
+otherwise delete the record.
+
+
+
+set serveroutput on;
+accept n prompt 'emter the employee number ';
+declare
+eno number :=&n;
+cursor salary is
+select sal
+from emp
+where eno=emp.empno;
+sall emp.sal%type;
+begin 
+open salary;
+loop
+  fetch salary into sall;
+  exit when salary%notfound;
+  update
+  if(sall<5000) then
+  set sal=sal+.1*sal;
+  where eno=emp.eno
+  else
+  delete emp
+  where eno=emp.eno
+  end if;
+  dbms_output.put_line('salary is ' |sall);
+  end loop;
+  close salary
+  end;
+
+
+9. Write a PL/SQL block to delete all the rows of a particular department from the table employee 
+where deptno is accepted from the user
+
+
+
+set serveroutput on;
+accept x prompt 'enter the department ':
+declare
+num number :=&x;
+begin 
+  delete from emp
+  where num=emp.deptno;
+  end;
+
+
+
+10. Write PL/SQL code to insert the record in department table.
+
+begin 
+insert into product(productnumber, productname, unitprice)
+values(6000,'tqr',240);
+end;
+
+
+
+11. Write PL/SQL script to input salary amount and display the Employee Name earning same salary amount.
+ Use NO_DATA_FOUND and TOO_MANY ROWS Exception.
+
+
+set serveroutput on;
+accept x prompt 'enter the salary ';
+declare
+
+cursor xyz is
+select ename
+from emp
+where emp.sal=&x;
+--sall num :=&x;
+nam emp.ename%type;
+
+begin 
+  open xyz; 
+  loop
+  fetch xyz into nam;
+  exit when xyz%notfound;
+  dbms_output.put_line('name is '|| nam ||' sal is '||&x);
+  end loop;
+  close xyz;
+  end;
+
+
+
+12. Write PL/SQL script that traps ZERO_DIVIDE exception when a number is divided by other number.
+ And also raised user define exception if number2 greater than number1.
+
+
+
+

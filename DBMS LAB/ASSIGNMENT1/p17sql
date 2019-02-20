@@ -1,0 +1,7 @@
+select total, salespersonnumber
+from(select sum(quantity) total,salespersonnumber
+from sales
+where salespersonnumber>=150
+group by salespersonnumber
+)
+where total>=5000;

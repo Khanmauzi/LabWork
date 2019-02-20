@@ -1,0 +1,20 @@
+transactions of item : 0
+0 1 2 3 4 
+transactions of item : 1
+0 1 2 3 4 
+transactions of item : 2
+0 1 2 3 4 
+transactions of item : 3
+0 1 2 3 4 
+transactions of item : 4
+0 1 2 3 4 
+transactions of item : 5
+1 2 3 4 
+transactions of item : 6
+1 2 3 4 
+transactions of item : 7
+1 2 3 4 
+transactions of item : 8
+2 3 
+transactions of item : 9
+3 4 

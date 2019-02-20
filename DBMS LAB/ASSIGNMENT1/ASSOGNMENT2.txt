@@ -1,0 +1,29 @@
+AIRPORT(Airport_id,city,state,name), candidate key = Airport id
+
+Airplane_type(company,type_name,max_seats) ,candidate key =Type_name
+
+Airplane(Airplane_id ,total_no_of_seats),  candidate key =Airplane_id
+
+can_land(Airport_code,Type_name), candidate key =Airport_code,type_name
+
+Type(Type_name,Airplane_id), candidate key =Type_name
+
+flight(Number,airline,weekdays), candidate key =number
+
+DEPARTURE_AIRPORT(Schedule_dep_time, Leg_no, Airport_code), candidate key =Airport_code
+
+ARRIVAL_AIRPORT(Schedule_arr_time,Leg_no,Airport_code), candidate key =Airport_code
+
+DEPARTS(Dep_time,Airport_code,Date,No_of_avail_seats),  candidate key =Airport_code
+
+ARRIVES(Arr_time,Airport_code,Date,No_of_avail_seats), candidate key =Airport_code
+
+ASSIGNED(Airplane_id,Date,No_of_avail_seats) , candidate key =Airplane_id
+
+RESERVATION(Seat_no,Custome_name,Cphone,No_of_avail_seats,Airplane_id) , candidate key =Airplane_id
+
+LEGS(Leg_no,Number), candidate key =Number
+
+Fares(Number,Restrictions,Amount,Code)  ,candidate key =Number
+
+Instance of(Leg_no,No_of_seats,Date,Airplane_id)

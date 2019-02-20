@@ -1,0 +1,1039 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.3.0407.2800"
+    charSet    	0)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"59FC4ADE00D5"
+    enforceClosureAutoLoad 	FALSE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	0
+	gridY      	0
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"59FC4ADE00D7"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list
+	    (object Class "Student"
+		quid       	"59FC4AEE002F"
+		stereotype 	"Actor")
+	    (object Class "Professor"
+		quid       	"59FC4BC30196"
+		stereotype 	"Actor")
+	    (object Class "Database"
+		quid       	"59FC4BCC0033"
+		stereotype 	"Actor")
+	    (object UseCase "Register for semester"
+		quid       	"59FC4BD600E4")
+	    (object UseCase "view report card"
+		quid       	"59FC4C220016"
+		visible_modules 	(list dependency_list
+		    (object Dependency_Relationship
+			quid       	"59FC4C3B0071"
+			supplier   	"Use Case View::verify user"
+			quidu      	"59FC4C3201FA")))
+	    (object UseCase "verify user"
+		quid       	"59FC4C3201FA")
+	    (object UseCase "select course"
+		quid       	"59FC4C51028E")
+	    (object UseCase "update personal  data"
+		quid       	"59FC4C620159")
+	    (object UseCase "record student grades"
+		quid       	"59FC4C9402A3"
+		visible_modules 	(list dependency_list
+		    (object Dependency_Relationship
+			quid       	"59FC4CAC02D2"
+			supplier   	"Use Case View::verify the user"
+			quidu      	"59FC4CA0032D")))
+	    (object UseCase "verify the user"
+		quid       	"59FC4CA0032D")
+	    (object UseCase "Opt subject to teach"
+		quid       	"59FC4CFD032A")
+	    (object Association "$UNNAMED$0"
+		quid       	"59FC4BF20355"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"59FC4BF302CD"
+			supplier   	"Use Case View::Register for semester"
+			quidu      	"59FC4BD600E4"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"59FC4BF302CF"
+			supplier   	"Use Case View::Student"
+			quidu      	"59FC4AEE002F")))
+	    (object Association "$UNNAMED$3"
+		quid       	"59FC4C0B02DC"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"59FC4C0C02C3"
+			supplier   	"Use Case View::Register for semester"
+			quidu      	"59FC4BD600E4"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"59FC4C0C02C5"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033")))
+	    (object Association "$UNNAMED$6"
+		quid       	"59FC4C2E0101"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$7"
+			quid       	"59FC4C2F01B0"
+			supplier   	"Use Case View::view report card"
+			quidu      	"59FC4C220016"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$8"
+			quid       	"59FC4C2F01B2"
+			supplier   	"Use Case View::Student"
+			quidu      	"59FC4AEE002F")))
+	    (object Association "$UNNAMED$9"
+		quid       	"59FC4C4103A5"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$10"
+			quid       	"59FC4C4202BD"
+			supplier   	"Use Case View::verify user"
+			quidu      	"59FC4C3201FA"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$11"
+			quid       	"59FC4C4202BF"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033")))
+	    (object Association "select course"
+		quid       	"59FC4C530349"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$12"
+			quid       	"59FC4C5402B7"
+			supplier   	"Use Case View::select course"
+			quidu      	"59FC4C51028E"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$13"
+			quid       	"59FC4C5402B9"
+			supplier   	"Use Case View::Student"
+			quidu      	"59FC4AEE002F")))
+	    (object Association "$UNNAMED$14"
+		quid       	"59FC4C5D00BE"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$15"
+			quid       	"59FC4C5E007D"
+			supplier   	"Use Case View::select course"
+			quidu      	"59FC4C51028E"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$16"
+			quid       	"59FC4C5E008C"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033")))
+	    (object Association "$UNNAMED$17"
+		quid       	"59FC4C7901E2"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$18"
+			quid       	"59FC4C7A0127"
+			supplier   	"Use Case View::update personal  data"
+			quidu      	"59FC4C620159"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$19"
+			quid       	"59FC4C7A0129"
+			supplier   	"Use Case View::Student"
+			quidu      	"59FC4AEE002F")))
+	    (object Association "$UNNAMED$20"
+		quid       	"59FC4C7D0357"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$21"
+			quid       	"59FC4C7F025A"
+			supplier   	"Use Case View::update personal  data"
+			quidu      	"59FC4C620159"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$22"
+			quid       	"59FC4C7F025C"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033")))
+	    (object Association "$UNNAMED$23"
+		quid       	"59FC4C9D00F3"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$24"
+			quid       	"59FC4C9E016E"
+			supplier   	"Use Case View::record student grades"
+			quidu      	"59FC4C9402A3"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$25"
+			quid       	"59FC4C9E0170"
+			supplier   	"Use Case View::Professor"
+			quidu      	"59FC4BC30196")))
+	    (object Association "$UNNAMED$26"
+		quid       	"59FC4CB10384"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$27"
+			quid       	"59FC4CB2032D"
+			supplier   	"Use Case View::verify the user"
+			quidu      	"59FC4CA0032D"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$28"
+			quid       	"59FC4CB2032F"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033")))
+	    (object Association "$UNNAMED$29"
+		quid       	"59FC4D12013A"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$30"
+			quid       	"59FC4D1301EA"
+			supplier   	"Use Case View::Opt subject to teach"
+			quidu      	"59FC4CFD032A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$31"
+			quid       	"59FC4D1301EC"
+			supplier   	"Use Case View::Professor"
+			quidu      	"59FC4BC30196")))
+	    (object Association "$UNNAMED$32"
+		quid       	"59FC4D16006D"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$33"
+			quid       	"59FC4D17018F"
+			supplier   	"Use Case View::Opt subject to teach"
+			quidu      	"59FC4CFD032A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$34"
+			quid       	"59FC4D170191"
+			supplier   	"Use Case View::Database"
+			quidu      	"59FC4BCC0033"))))
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"59FC4ADE00E6"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object UseCaseView "Use Case View::Register for semester" @1
+			location   	(1853, 772)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1
+			    location   	(1853, 910)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Register for semester")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4BD600E4"
+			height     	118)
+		    (object UseCaseView "Use Case View::view report card" @2
+			location   	(1866, 1144)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(1866, 1282)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"view report card")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4C220016"
+			height     	118)
+		    (object UseCaseView "Use Case View::verify user" @3
+			location   	(2445, 1281)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(2445, 1419)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"verify user")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4C3201FA"
+			height     	118)
+		    (object DependencyView "" @4
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C3B0071"
+			client     	@2
+			supplier   	@3
+			vertices   	(list Points
+			    (1974, 1167)
+			    (2334, 1252))
+			line_style 	0)
+		    (object UseCaseView "Use Case View::select course" @5
+			location   	(1921, 469)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(1921, 607)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"select course")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4C51028E"
+			height     	118)
+		    (object ClassView "Class" "Use Case View::Student" @6
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(559, 781)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@6
+			    location   	(559, 941)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	325
+			    justify    	0
+			    label      	"Student")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"59FC4AEE002F"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$0" @7
+			location   	(1179, 774)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4BF20355"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$1" @8
+				Parent_View 	@7
+				location   	(620, -7)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4BF302CD"
+				client     	@7
+				supplier   	@1
+				vertices   	(list Points
+				    (1179, 774)
+				    (1743, 771))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$2" @9
+				Parent_View 	@7
+				location   	(620, -7)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4BF302CF"
+				client     	@7
+				supplier   	@6
+				vertices   	(list Points
+				    (1179, 774)
+				    (616, 777))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$6" @10
+			location   	(1185, 953)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C2E0101"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$7" @11
+				Parent_View 	@10
+				location   	(626, 172)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C2F01B0"
+				client     	@10
+				supplier   	@2
+				vertices   	(list Points
+				    (1185, 953)
+				    (1755, 1112))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$8" @12
+				Parent_View 	@10
+				location   	(626, 172)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C2F01B2"
+				client     	@10
+				supplier   	@6
+				vertices   	(list Points
+				    (1185, 953)
+				    (616, 794))
+				line_style 	0)))
+		    (object AssociationViewNew "select course" @13
+			location   	(1213, 626)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C530349"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$12" @14
+				Parent_View 	@13
+				location   	(654, -155)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C5402B7"
+				client     	@13
+				supplier   	@5
+				vertices   	(list Points
+				    (1213, 626)
+				    (1811, 490))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$13" @15
+				Parent_View 	@13
+				location   	(654, -155)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C5402B9"
+				client     	@13
+				supplier   	@6
+				vertices   	(list Points
+				    (1213, 626)
+				    (616, 763))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::update personal  data" @16
+			location   	(1927, 190)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@16
+			    location   	(1927, 328)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"update personal  data")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4C620159"
+			height     	118)
+		    (object AssociationViewNew "$UNNAMED$17" @17
+			location   	(1170, 512)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C7901E2"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$18" @18
+				Parent_View 	@17
+				location   	(611, -269)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C7A0127"
+				client     	@17
+				supplier   	@16
+				vertices   	(list Points
+				    (1170, 512)
+				    (1725, 273))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$19" @19
+				Parent_View 	@17
+				location   	(611, -269)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C7A0129"
+				client     	@17
+				supplier   	@6
+				vertices   	(list Points
+				    (1170, 512)
+				    (616, 751))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::record student grades" @20
+			location   	(1828, 1700)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@20
+			    location   	(1828, 1838)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"record student grades")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4C9402A3"
+			height     	118)
+		    (object UseCaseView "Use Case View::verify the user" @21
+			location   	(2371, 1669)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@21
+			    location   	(2371, 1807)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"verify the user")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4CA0032D"
+			height     	118)
+		    (object DependencyView "" @22
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4CAC02D2"
+			client     	@20
+			supplier   	@21
+			vertices   	(list Points
+			    (1936, 1690)
+			    (2261, 1672))
+			line_style 	0)
+		    (object ClassView "Class" "Use Case View::Professor" @23
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(572, 1559)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@23
+			    location   	(572, 1719)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	328
+			    justify    	0
+			    label      	"Professor")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"59FC4BC30196"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$23" @24
+			location   	(1173, 1623)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C9D00F3"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$24" @25
+				Parent_View 	@24
+				location   	(601, 64)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C9E016E"
+				client     	@24
+				supplier   	@20
+				vertices   	(list Points
+				    (1173, 1623)
+				    (1718, 1684))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$25" @26
+				Parent_View 	@24
+				location   	(601, 64)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C9E0170"
+				client     	@24
+				supplier   	@23
+				vertices   	(list Points
+				    (1173, 1623)
+				    (629, 1563))
+				line_style 	0)))
+		    (object ClassView "Class" "Use Case View::Database" @27
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(3659, 1287)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@27
+			    location   	(3659, 1447)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	331
+			    justify    	0
+			    label      	"Database")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"59FC4BCC0033"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$3" @28
+			location   	(2826, 1046)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C0B02DC"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$4" @29
+				Parent_View 	@28
+				location   	(-867, -235)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C0C02C3"
+				client     	@28
+				supplier   	@1
+				vertices   	(list Points
+				    (2826, 1046)
+				    (2053, 826))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$5" @30
+				Parent_View 	@28
+				location   	(-867, -235)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C0C02C5"
+				client     	@28
+				supplier   	@27
+				vertices   	(list Points
+				    (2826, 1046)
+				    (3599, 1267))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$9" @31
+			location   	(3076, 1281)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C4103A5"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$10" @32
+				Parent_View 	@31
+				location   	(-583, -6)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C4202BD"
+				client     	@31
+				supplier   	@3
+				vertices   	(list Points
+				    (3076, 1281)
+				    (2553, 1280))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$11" @33
+				Parent_View 	@31
+				location   	(-583, -6)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C4202BF"
+				client     	@31
+				supplier   	@27
+				vertices   	(list Points
+				    (3076, 1281)
+				    (3600, 1283))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$14" @34
+			location   	(2824, 891)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C5D00BE"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$15" @35
+				Parent_View 	@34
+				location   	(-835, -396)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C5E007D"
+				client     	@34
+				supplier   	@5
+				vertices   	(list Points
+				    (2824, 891)
+				    (2048, 527))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$16" @36
+				Parent_View 	@34
+				location   	(-835, -396)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C5E008C"
+				client     	@34
+				supplier   	@27
+				vertices   	(list Points
+				    (2824, 891)
+				    (3600, 1256))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$20" @37
+			location   	(2863, 781)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4C7D0357"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$21" @38
+				Parent_View 	@37
+				location   	(-796, -506)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C7F025A"
+				client     	@37
+				supplier   	@16
+				vertices   	(list Points
+				    (2863, 781)
+				    (2127, 314))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$22" @39
+				Parent_View 	@37
+				location   	(-796, -506)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4C7F025C"
+				client     	@37
+				supplier   	@27
+				vertices   	(list Points
+				    (2863, 781)
+				    (3600, 1248))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$26" @40
+			location   	(3039, 1466)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4CB10384"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$27" @41
+				Parent_View 	@40
+				location   	(-620, 179)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4CB2032D"
+				client     	@40
+				supplier   	@21
+				vertices   	(list Points
+				    (3039, 1466)
+				    (2479, 1632))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$28" @42
+				Parent_View 	@40
+				location   	(-620, 179)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4CB2032F"
+				client     	@40
+				supplier   	@27
+				vertices   	(list Points
+				    (3039, 1466)
+				    (3600, 1301))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::Opt subject to teach" @43
+			location   	(1853, 2084)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@43
+			    location   	(1853, 2222)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Opt subject to teach")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC4CFD032A"
+			height     	118)
+		    (object AssociationViewNew "$UNNAMED$29" @44
+			location   	(1186, 1809)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4D12013A"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$30" @45
+				Parent_View 	@44
+				location   	(614, 250)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4D1301EA"
+				client     	@44
+				supplier   	@43
+				vertices   	(list Points
+				    (1186, 1809)
+				    (1743, 2038))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$31" @46
+				Parent_View 	@44
+				location   	(614, 250)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4D1301EC"
+				client     	@44
+				supplier   	@23
+				vertices   	(list Points
+				    (1186, 1809)
+				    (629, 1581))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$32" @47
+			location   	(2832, 1805)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC4D16006D"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$33" @48
+				Parent_View 	@47
+				location   	(-827, 518)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4D17018F"
+				client     	@47
+				supplier   	@43
+				vertices   	(list Points
+				    (2832, 1805)
+				    (2771, 1843)
+				    (1961, 2052))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$34" @49
+				Parent_View 	@47
+				location   	(-827, 518)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"59FC4D170191"
+				client     	@47
+				supplier   	@27
+				vertices   	(list Points
+				    (2832, 1805)
+				    (3600, 1319))
+				line_style 	0)))))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"59FC4ADE00D6"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"59FC4ADE00D8"
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"59FC4ADE00DC"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"59FC4ADE00D8"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"59FC4ADE00E5"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list)))
+	category   	"Logical View"
+	quidu      	"59FC4ADE00D6")
+    process_structure 	(object Processes
+	quid       	"59FC4ADE00D9"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"59FC4ADE00DB"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	quid       	"59FC4ADE00DA"))

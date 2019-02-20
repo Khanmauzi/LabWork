@@ -1,0 +1,10 @@
+roll: 1
+cgpa: 4
+roll: 2
+cgpa: 5
+roll: 3
+cgpa: 6
+roll: 4
+cgpa: 7
+roll: 5
+cgpa: 8

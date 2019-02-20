@@ -1,0 +1,290 @@
+1. Find the commission percentage and year of hire of salesperson number 186.
+
+SELECT commpercentage, yearhire
+  FROM salesperson
+  WHERE salespersonnumber=186;
+
+12	03-JAN-15
+18	03-JAN-16
+7	03-JAN-11
+
+
+2. List the salesperson numbers and salesperson names of those salespersons who have a commission percentage of 10.
+
+SELECT SALESPERSONNUMBER,SALESPERSONNAME
+FROM SALESPERSON
+WHERE COMMPERCENTAGE=10;
+
+175	ABHILASH
+177	PURU
+
+
+3. List the salesperson number and salesperson name of all of the salespersons.
+
+SELECT SALESPERSONNAME,SALESPERSONNUMBER
+FROM SALESPERSON;
+
+ABHILASH	175
+PRAVEEN		186
+KRISHNA		186
+MAUZI		180
+ADAM		195
+ABHAY		186
+PURU		177
+RAJESH		137
+
+4. List the salesperson numbers, salesperson names, and commission percentages of the salespersons whose commission percentage is less than 12.
+
+
+SELECT SALESPERSONNAME,SALESPERSONNUMBER,COMMPERCENTAGE
+FROM SALESPERSON
+WHERE COMMPERCENTAGE<12;
+
+ABHILASH	175	10
+MAUZI		180	6
+ABHAY		186	7
+PURU		177	10
+
+
+
+5. List the customer numbers and headquarters cities of the customers that have a customer number of at least 1700.
+
+
+
+SELECT CUSTOMERNUMBER,HEADQUARTERCITY
+FROM CUSTOMER
+WHERE CUSTOMERNUMBER>=1700;
+
+1700	LUCKNOW
+1750	ATLANTA
+1785	ASSAM
+1800	NEW DELHI
+
+6. List the customer numbers, customer names, and headquarters cities of the customers that are headquartered in New York and that have a customer 
+number higher than 1500.
+
+
+
+SELECT CUSTOMERNUMBER,CUSTOMERNAME,HEADQUARTERCITY
+FROM CUSTOMER
+WHERE CUSTOMERNUMBER>1500 AND HEADQUARTERCITY='NEW YORK';
+
+
+1525	JOHN	NEW YORK
+1550	ABY	NEW YORK
+
+
+7. ‘List the customer numbers, customer names, and headquarters cities of the customers that are headquartered in New York or that have a 
+customer number higher than 1500.
+
+
+
+SELECT CUSTOMERNUMBER,CUSTOMERNAME,HEADQUARTERCITY
+FROM CUSTOMER
+WHERE CUSTOMERNUMBER>1500 OR HEADQUARTERCITY='NEW YORK';
+
+
+1600	JINISH	ATLANTA
+1700	RAJAT	LUCKNOW
+1750	BASUU	ATLANTA
+1785	IBON	ASSAM
+1800	SHIVAM	NEW DELHI
+1525	JOHN	NEW YORK
+1550	ABY	NEW YORK
+
+
+8. List the customer numbers, customer names, and headquarters cities of the customers that are headquartered in New York or that satisfy
+ the two conditions of having a customer number higher than 1500 and being headquartered in Atlanta.
+
+
+SELECT CUSTOMERNUMBER,CUSTOMERNAME,HEADQUARTERCITY
+FROM CUSTOMER
+WHERE HEADQUARTERCITY='NEW YORK' OR
+CUSTOMERNUMBER >1500 AND HEADQUARTERCITY = 'ATLANTA';
+
+
+1600	JINISH	ATLANTA
+1750	BASUU	ATLANTA
+1525	JOHN	NEW YORK
+1550	ABY	NEW YORK
+
+9. Which cities serve as headquarters cities for General Hardware customers?
+
+SELECT HEADQUARTERCITY
+FROM CUSTOMER;
+
+
+ATLANTA
+LUCKNOW
+ATLANTA
+ASSAM
+NEW DELHI
+NEW YORK
+NEW YORK
+
+
+
+
+10. Find the customer numbers, customer names, and headquarters cities of those customers with customer numbers greater than 1000. 
+List the results in alphabetic order by  headquarters cities.
+
+
+SELECT CUSTOMERNUMBER,CUSTOMERNAME,HEADQUARTERCITY
+FROM CUSTOMER
+WHERE CUSTOMERNUMBER>1000
+ORDER BY HEADQUARTERCITY;
+
+
+
+1785	IBON	ASSAM
+1750	BASUU	ATLANTA
+1600	JINISH	ATLANTA
+1700	RAJAT	LUCKNOW
+1800	SHIVAM	NEW DELHI
+1550	ABY	NEW YORK
+1525	JOHN	NEW YORK
+
+
+
+11. Find the average number of units of the different products that Salesperson 137 sold 
+(i.e., the average of the quantity values in the first three records of the SALES table).
+
+
+
+SELECT productnumber,AVG(QUANTITY)
+FROM sales
+WHERE SALESPERSONNUMBER=137
+GROUP BY productnumber
+ORDER BY productnumber;
+
+
+5000	10
+10000	15
+21765	18.5
+
+
+12. What is the largest number of units of Product Number 21765 that any individual salesperson has sold?
+
+SELECT MAX(QUANTITY)
+FROM SALES
+WHERE PRODUCTNUMBER=21765;
+
+35
+
+
+13. How many salespersons have sold Product Number 21765?
+
+
+SELECT count(*)
+from sales
+where productnumber=21765;
+
+5
+
+
+14. Find the total number of units of all products sold by each salesperson
+
+
+select salespersonnumber,sum(quantity)
+from sales
+group by salespersonnumber
+order by salespersonnumber;
+
+
+137	62
+177	20
+186	45
+195	30
+
+
+
+15. Find the total number of units of all products sold by each salesperson whose salesperson number is at least 150.
+
+
+select salespersonnumber,sum(quantity)
+from sales
+where salespersonnumber>=150
+group by salespersonnumber
+order by salespersonnumber;
+
+177	20
+186	45
+195	5520
+
+
+16. Find the total number of units of all products sold by each salesperson whose salesperson number is at least 150.
+
+
+select salespersonnumber,sum(quantity)
+from sales
+where salespersonnumber>=150
+group by salespersonnumber
+order by salespersonnumber;
+
+177	20
+186	45
+195	5520
+
+
+
+
+17. Find the total number of units of all products sold by each salesperson whose salesperson number is at least 150. 
+Include only salespersons whose total number of units sold is at least 5000.
+
+
+
+
+select total, salespersonnumber
+from(select sum(quantity) total,salespersonnumber
+from sales
+where salespersonnumber>=150
+group by salespersonnumber
+)
+where total>=5000;
+
+5520	195
+
+
+
+18. Find the name of the salesperson responsible for Customer Number 1525.
+
+
+
+
+select salesperson.salespersonname
+from customer,salesperson
+where customer.salespersonnumber=salesperson.salespersonnumber and customernumber=1525;
+
+
+PRAVEEN
+KRISHNA
+ABHAY
+
+
+
+
+
+19. List the names of the products of which salesperson Adams has sold more than 2000 units.
+
+
+select product.productname
+from salesperson,sales,product
+where salesperson.salespersonname='ADAM' and salesperson.salespersonnumber=sales.salespersonnumber 
+and sales.productnumber=product.productnumber and sales.quantity>=2000;
+
+
+ABC
+
+
+
+20. Which salespersons with salesperson numbers greater than 200 have the lowest commission percentage?’’
+ (We’ll identify salespersons by their salesperson number.)
+
+
+select salespersonnumber,min(commpercentage)
+from salesperson
+where salespersonnumber>=200
+group by salespersonnumber;
+
+
+

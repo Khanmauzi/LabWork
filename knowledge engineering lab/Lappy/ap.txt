@@ -1,0 +1,69 @@
+//apriory algorithm
+
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <vector>
+#include <map>
+#include <iterator>
+using namespace std;
+void getfirst(map<vector<int>,int> &m,ifstream &fin){
+	map<int,int>t;
+	while(!fin.eof()){
+		string s;
+		getline(fin,s);
+		if(fin.eof())
+		break;
+	//	cout<<s<<endl;
+		int i=0;
+		while(s[i]){
+			if(s[i]=='I'){
+				i++;
+				int n=s[i]-'0';
+				//cout<<n<<" ";
+				if(t.find(n)==t.end()){
+				//	cout<<"found "<<endl;
+				
+					t.insert(pair<int,int>(n,1));
+				}
+				else{
+				//	cout<<"not found "<<endl;
+					t[n]++;
+				}
+			}
+			else 
+			i++;
+		}
+	}
+	map<int,int>::iterator it;
+	for(it=t.begin();it!=t.end();it++){
+		vector<int>v;
+		v.push_back(it->first);
+		m.insert(pair<vector<int>,int>(v,it->second));
+	}
+}
+void printf(map<vector<int>,int>m){
+	map<vector<int>,int>::iterator it;
+	for(it=m.begin();it!=m.end();it++){
+		vector<int>v=it->first;
+		vector<int>::iterator it1;
+		for(it1=v.begin();it1!=v.end();it1++){
+			cout<<*it1<<"  ";
+		}
+		cout<<" : "<<it->second<<endl;
+	}
+}
+int main(){
+	ifstream fin;
+	fin.open("bill.txt");
+	int th=3;
+	map<vector<int>,int>m,l;
+	getfirst(m,fin);
+	cout<<"printing c1 : "<<endl;
+	printf(m);
+	cout<<endl;
+	return 0;
+	
+}

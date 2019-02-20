@@ -1,0 +1,77 @@
+1. Find the book number, book name, and number of pages of all the books published by London Publishing Ltd. 
+List the results in order by book name?
+
+
+SELECT BNO,BNAME,PAGE
+FROM BOOK
+WHERE PNAME='LONDON PUBLISHING LIMITED'
+ORDER BY PNAME;
+
+411	 A JOURNEY	425
+500	THE LOVE STORY	650
+
+
+
+
+2. How many books of at least 400 pyages does Good Reading Bookstores carry that 
+were published by publishers based in Paris, France?
+
+
+
+SELECT COUNT(*)
+FROM BOOK,PUBLISHER
+WHERE  PUBLISHER.country='FRANCE'
+AND PUBLISHER.pname=BOOK.PNAME AND BOOK.PAGE>=400 OR 
+  PUBLISHER.country='PARIS'
+AND PUBLISHER.pname=BOOK.PNAME AND BOOK.PAGE>=400 ;
+
+
+2
+
+
+3. List the publishers in Belgium, Brazil, 
+and Singapore that publish books written by authors who were born before 1920.
+
+
+
+SELECT PUBLISHER.PNAME
+FROM BOOK, publisher,(SELECT WRITING.BNO
+                      FROM writing ,(SELECT ANUMBER
+                                    FROM author
+                                    WHERE DOB<1920)X
+                                    WHERE X.ANUMBER= writing.anumber)Y
+                WHERE(Y.BNO= book.bno AND publisher.pname= book.pname
+                AND (publisher.country='BELGIUN)'OR publisher.country='SINGAPORE' OR
+                publisher.country='BRAZIL'))
+
+
+TERO
+ASFASID
+
+
+
+
+4.How many books did each publisher in India, Norway; Nairobi, Kenya; 
+and Auckland, New Zealand, publish in 2001?
+
+
+
+select COUNT(BOOK.BNO),PUBLISHER.COUNTRY
+from BOOK, publisher
+where (PUBLISHER.PNAME=BOOK.PNAME AND BOOK.PYEAR=2001 AND (PUBLISHER.country='NORWAY' OR PUBLISHER.country='INDIA'
+ OR PUBLISHER.country=' NAIROBI' OR PUBLISHER.country='KENYA' OR PUBLISHER.country='NEW ZEALAND'))
+GROUP  BY PUBLISHER.country;
+
+
+5. Which publisher published the book that has the earliest publication year
+ among all the books that Good Reading Bookstores carries?
+
+
+
+
+
+SELECT BOOK.PNAME
+FROM BOOK
+WHERE PYEAR=(SELECT MIN(PYEAR) FROM BOOK);
+
+THE NORWAY PUBLISHING LIMITED

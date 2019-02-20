@@ -1,0 +1,682 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.3.0407.2800"
+    charSet    	0)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"59FC2C6300A5"
+    enforceClosureAutoLoad 	FALSE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	0
+	gridY      	0
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"59FC2C6300A7"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"59FC2C6300AE"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"59FC2C6300A6"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"59FC2C6300A8"
+	logical_models 	(list unit_reference_list
+	    (object Mechanism @1
+		logical_models 	(list unit_reference_list
+		    (object Object "user"
+			quid       	"59FC2C78035A"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"59FC2CE401C8"
+				supplier   	"librarian"
+				quidu      	"59FC2C7A01F2"
+				messages   	(list Messages
+				    (object Message "take item to issue"
+					quid       	"59FC2E46033F"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"5"
+					ordinal    	4
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "issue the item"
+					quid       	"59FC2EA0029B"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"8"
+					ordinal    	7
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"59FC2D1D0230"
+				supplier   	"database"
+				quidu      	"59FC2C7C00FA"
+				messages   	(list Messages
+				    (object Message "search an item"
+					quid       	"59FC2D7A008C"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "return search result"
+					quid       	"59FC2D86033F"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2"
+					ordinal    	1
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "select an item"
+					quid       	"59FC2D9501A8"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"3"
+					ordinal    	2
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "item is available"
+					quid       	"59FC2E170306"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"4"
+					ordinal    	3
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "librarian"
+			quid       	"59FC2C7A01F2"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"59FC2CE702D1"
+				supplier   	"database"
+				quidu      	"59FC2C7C00FA"
+				messages   	(list Messages
+				    (object Message "verify the user"
+					quid       	"59FC2E550182"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"6"
+					ordinal    	5
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "user is registerd"
+					quid       	"59FC2E62026F"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"7"
+					ordinal    	6
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "database"
+			quid       	"59FC2C7C00FA"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"59FC2DCE0165"
+				label      	"check the availability of item"
+				supplier   	"database"
+				quidu      	"59FC2C7C00FA"))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE))))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"59FC2C6300AC"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))
+	    (object ObjectDiagram "NewDiagram"
+		mechanism_ref 	@1
+		quid       	"59FC2C6E027D"
+		title      	"NewDiagram"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ObjectView "user" @2
+			location   	(728, 1553)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(647, 1502)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	162
+			    justify    	0
+			    label      	"user")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC2C78035A"
+			height     	126
+			annotation 	4
+			autoResize 	TRUE
+			subobjects 	0
+			x_offset   	0.000000
+			y_offset   	0.000000)
+		    (object ObjectView "librarian" @3
+			location   	(2225, 250)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(2144, 199)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	162
+			    justify    	0
+			    label      	"librarian")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC2C7A01F2"
+			height     	126
+			annotation 	4
+			autoResize 	TRUE
+			subobjects 	0
+			x_offset   	0.000000
+			y_offset   	0.000000)
+		    (object ObjectView "database" @4
+			location   	(3973, 1587)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(3892, 1536)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	162
+			    justify    	0
+			    label      	"database")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"59FC2C7C00FA"
+			height     	126
+			annotation 	4
+			autoResize 	TRUE
+			subobjects 	0
+			x_offset   	0.000000
+			y_offset   	0.000000)
+		    (object LinkSelfView "check the availability of item" @5
+			location   	(3973, 1374)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(3973, 1374)
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	530
+			    justify    	0
+			    label      	"check the availability of item")
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC2DCE0165"
+			client     	@4
+			supplier   	@4
+			vertices   	(list Points
+			    (3916, 1524)
+			    (4030, 1524))
+			line_style 	4)
+		    (object LinkView "" @6
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC2CE401C8"
+			client     	@2
+			supplier   	@3
+			vertices   	(list Points
+			    (798, 1489)
+			    (2149, 313))
+			line_style 	0)
+		    (object MessView "" @7
+			location   	(1331, 724)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @8
+			    Parent_View 	@7
+			    location   	(1247, 614)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2E46033F"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	375
+			    justify    	0
+			    label      	"take item to issue"
+			    pctDist    	0.563131
+			    height     	139
+			    orientation 	0)
+			object_arc 	@6
+			pctDist    	0.505240
+			height     	228
+			orientation 	0
+			dir        	1
+			origin     	(1286, 762)
+			terminus   	(1376, 686))
+		    (object MessView "" @9
+			location   	(1633, 822)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @10
+			    Parent_View 	@9
+			    location   	(1663, 856)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2EA0029B"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	306
+			    justify    	0
+			    label      	"issue the item"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			object_arc 	@6
+			pctDist    	0.595932
+			height     	45
+			orientation 	1
+			dir        	-1
+			origin     	(1677, 783)
+			terminus   	(1589, 861))
+		    (object LinkView "" @11
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC2D1D0230"
+			client     	@2
+			supplier   	@4
+			vertices   	(list Points
+			    (818, 1553)
+			    (3882, 1585))
+			line_style 	0)
+		    (object MessView "" @12
+			location   	(2174, 1285)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @13
+			    Parent_View 	@12
+			    location   	(2195, 1227)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2D7A008C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	319
+			    justify    	0
+			    label      	"search an item"
+			    pctDist    	0.666759
+			    height     	59
+			    orientation 	0)
+			object_arc 	@11
+			pctDist    	0.441920
+			height     	283
+			orientation 	0
+			dir        	1
+			origin     	(2114, 1284)
+			terminus   	(2234, 1286))
+		    (object MessView "" @14
+			location   	(2146, 1698)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @15
+			    Parent_View 	@14
+			    location   	(2237, 1735)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2D86033F"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	403
+			    justify    	0
+			    label      	"return search result"
+			    pctDist    	-0.271186
+			    height     	37
+			    orientation 	0)
+			object_arc 	@11
+			pctDist    	0.433867
+			height     	131
+			orientation 	1
+			dir        	-1
+			origin     	(2205, 1698)
+			terminus   	(2087, 1698))
+		    (object MessView "" @16
+			location   	(2183, 1432)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @17
+			    Parent_View 	@16
+			    location   	(2222, 1380)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2D9501A8"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	306
+			    justify    	0
+			    label      	"select an item"
+			    pctDist    	0.817551
+			    height     	54
+			    orientation 	0)
+			object_arc 	@11
+			pctDist    	0.445032
+			height     	136
+			orientation 	0
+			dir        	1
+			origin     	(2123, 1431)
+			terminus   	(2243, 1433))
+		    (object MessView "" @18
+			location   	(2105, 1926)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @19
+			    Parent_View 	@18
+			    location   	(2105, 1971)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2E170306"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	352
+			    justify    	0
+			    label      	"item is available"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			object_arc 	@11
+			pctDist    	0.421265
+			height     	360
+			orientation 	1
+			dir        	-1
+			origin     	(2164, 1926)
+			terminus   	(2046, 1926))
+		    (object LinkView "" @20
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"59FC2CE702D1"
+			client     	@3
+			supplier   	@4
+			vertices   	(list Points
+			    (2307, 313)
+			    (3889, 1523))
+			line_style 	0)
+		    (object MessView "" @21
+			location   	(2986, 551)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @22
+			    Parent_View 	@21
+			    location   	(3013, 516)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2E550182"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	300
+			    justify    	0
+			    label      	"verify the user"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			object_arc 	@20
+			pctDist    	0.342684
+			height     	224
+			orientation 	0
+			dir        	1
+			origin     	(2938, 515)
+			terminus   	(3034, 587))
+		    (object MessView "" @23
+			location   	(2758, 816)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			line_color 	3342489
+			label      	(object SegLabel @24
+			    Parent_View 	@23
+			    location   	(2737, 827)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"59FC2E62026F"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	347
+			    justify    	0
+			    label      	"user is registerd"
+			    pctDist    	0.601340
+			    height     	22
+			    orientation 	0)
+			object_arc 	@20
+			pctDist    	0.333597
+			height     	126
+			orientation 	1
+			dir        	-1
+			origin     	(2805, 851)
+			terminus   	(2711, 781))))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"59FC2C6300A8"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"59FC2C6300AD"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list)))
+	category   	"Logical View"
+	quidu      	"59FC2C6300A6")
+    process_structure 	(object Processes
+	quid       	"59FC2C6300A9"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"59FC2C6300AB"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	quid       	"59FC2C6300AA"))
